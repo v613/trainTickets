@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 24, 2016 at 09:08 
+-- Generation Time: May 25, 2016 at 02:08 
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -113,17 +113,39 @@ CREATE TABLE `orders` (
   `start` varchar(20) NOT NULL,
   `destination` varchar(20) NOT NULL,
   `price` int(4) NOT NULL,
-  `id-train` int(3) NOT NULL,
-  `start-time` datetime NOT NULL,
-  `destination-time` datetime NOT NULL
+  `id_train` int(3) NOT NULL,
+  `start_time` datetime NOT NULL,
+  `destination_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `start`, `destination`, `price`, `id-train`, `start-time`, `destination-time`) VALUES
+INSERT INTO `orders` (`id`, `start`, `destination`, `price`, `id_train`, `start_time`, `destination_time`) VALUES
 (1, 'Chisinau', 'Causeni', 150, 3, '2016-05-23 12:25:00', '2016-05-24 13:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `id` int(11) NOT NULL,
+  `id_train` int(2) NOT NULL,
+  `start` varchar(20) NOT NULL,
+  `destination` varchar(20) NOT NULL,
+  `start_time` datetime NOT NULL,
+  `destination_time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `id_train`, `start`, `destination`, `start_time`, `destination_time`) VALUES
+(1, 6, 'Chisinau', 'Bender', '2016-05-25 06:00:00', '2016-05-25 08:00:00');
 
 -- --------------------------------------------------------
 
@@ -197,6 +219,12 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `train`
 --
 ALTER TABLE `train`
@@ -227,6 +255,11 @@ ALTER TABLE `clients`
 --
 ALTER TABLE `orders`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `train`
 --

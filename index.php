@@ -312,14 +312,8 @@ function shedule() {
 		}); // ready
     	</script>
     	<!--texitimonial-->
-    	<script>
-
-
-   $('.quotes').quovolver({
-      equalHeight   : true
-    });
-
+    	<script>$('.quotes').quovolver({equalHeight:true});
     	</script>
-
+    	<script>function redirect(id) {window.open("order.php?sch="+id, "_blank", "toolbar=no,scrollbars=yes,resizable=yes,top=500,left=400,width=600,height=700");}</script>
 	</body>
 </html>

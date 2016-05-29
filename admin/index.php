@@ -79,203 +79,51 @@
                 data-position="right" class="navbar-default navbar-static-side">
             <div class="sidebar-collapse menu-scroll">
                 <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active"><a href="dashboard.html"><i class="fa fa-tachometer fa-fw">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Administratia ROTT</span></a></li>
-                    <li><a href="Layout.html"><i class="fa fa-desktop fa-fw">
-                        <div class="icon-bg bg-pink"></div>
-                    </i><span class="menu-title">Layouts</span></a>
-                       
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="fa fa-tachometer fa-fw">
+                                <div class="icon-bg bg-orange"></div>
+                            </i><span class="menu-title">Administratia ROTT</span>
+                        </a>
                     </li>
-                    <li><a href="UIElements.html"><i class="fa fa-send-o fa-fw">
-                        <div class="icon-bg bg-green"></div>
-                    </i><span class="menu-title">UI Elements</span></a>
-                       
+                    <li>
+                        <a href="add.php">
+                            <i class="fa fa-desktop fa-fw">
+                                <div class="icon-bg bg-pink"></div>
+                            </i><span class="menu-title">Adauga Orar</span>
+                        </a>
                     </li>
-                    <li><a href="Forms.html"><i class="fa fa-edit fa-fw">
-                        <div class="icon-bg bg-violet"></div>
-                    </i><span class="menu-title">Forms</span></a>
-                      
+                    <li>
+                        <a href="edit.php">
+                            <i class="fa fa-edit fa-fw">
+                                <div class="icon-bg bg-violet"></div>
+                            </i><span class="menu-title">Editeaza Orar</span>
+                        </a>
                     </li>
-                    <li><a href="Tables.html"><i class="fa fa-th-list fa-fw">
-                        <div class="icon-bg bg-blue"></div>
-                    </i><span class="menu-title">Tables</span></a>
-                          
-                    </li>
-                    <li><a href="Pages.html"><i class="fa fa-file-o fa-fw">
-                        <div class="icon-bg bg-yellow"></div>
-                    </i><span class="menu-title">Pages</span></a>
-                       
-                    </li>
-                    <li><a href="Email.html"><i class="fa fa-envelope-o">
-                        <div class="icon-bg bg-primary"></div>
-                    </i><span class="menu-title">Email</span></a>
-                      
-                    </li>
-                    <li><a href="Charts.html"><i class="fa fa-bar-chart-o fa-fw">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Charts</span></a>
-                       
-                    </li>
-                    <li><a href="Animation.html"><i class="fa fa-slack fa-fw">
-                        <div class="icon-bg bg-green"></div>
-                    </i><span class="menu-title">Animations</span></a></li>
                 </ul>
             </div>
         </nav>
-            <!--END SIDEBAR MENU-->
-            <!--BEGIN CHAT FORM-->
-            <div id="chat-form" class="fixed">
-                <div class="chat-inner">
-                    <h2 class="chat-header">
-                        <a href="javascript:;" class="chat-form-close pull-right"><i class="glyphicon glyphicon-remove">
-                        </i></a><i class="fa fa-user"></i>&nbsp; Chat &nbsp;<span class="badge badge-info">3</span></h2>
-                    <div id="group-1" class="chat-group">
-                        <strong>Favorites</strong><a href="#"><span class="user-status is-online"></span> <small>
-                            Verna Morton</small> <span class="badge badge-info">2</span></a><a href="#"><span
-                                class="user-status is-online"></span> <small>Delores Blake</small> <span class="badge badge-info is-hidden">
-                                    0</span></a><a href="#"><span class="user-status is-busy"></span> <small>Nathaniel Morris</small>
-                                        <span class="badge badge-info is-hidden">0</span></a><a href="#"><span class="user-status is-idle"></span>
-                                            <small>Boyd Bridges</small> <span class="badge badge-info is-hidden">0</span></a><a
-                                                href="#"><span class="user-status is-offline"></span> <small>Meredith Houston</small>
-                                                <span class="badge badge-info is-hidden">0</span></a></div>
-                    <div id="group-2" class="chat-group">
-                        <strong>Office</strong><a href="#"><span class="user-status is-busy"></span> <small>
-                            Ann Scott</small> <span class="badge badge-info is-hidden">0</span></a><a href="#"><span
-                                class="user-status is-offline"></span> <small>Sherman Stokes</small> <span class="badge badge-info is-hidden">
-                                    0</span></a><a href="#"><span class="user-status is-offline"></span> <small>Florence
-                                        Pierce</small> <span class="badge badge-info">1</span></a></div>
-                    <div id="group-3" class="chat-group">
-                        <strong>Friends</strong><a href="#"><span class="user-status is-online"></span> <small>
-                            Willard Mckenzie</small> <span class="badge badge-info is-hidden">0</span></a><a
-                                href="#"><span class="user-status is-busy"></span> <small>Jenny Frazier</small>
-                                <span class="badge badge-info is-hidden">0</span></a><a href="#"><span class="user-status is-offline"></span>
-                                    <small>Chris Stewart</small> <span class="badge badge-info is-hidden">0</span></a><a
-                                        href="#"><span class="user-status is-offline"></span> <small>Olivia Green</small>
-                                        <span class="badge badge-info is-hidden">0</span></a></div>
-                </div>
-                <div id="chat-box" style="top: 400px">
-                    <div class="chat-box-header">
-                        <a href="#" class="chat-box-close pull-right"><i class="glyphicon glyphicon-remove">
-                        </i></a><span class="user-status is-online"></span><span class="display-name">Willard
-                            Mckenzie</span> <small>Online</small>
-                    </div>
-                    <div class="chat-content">
-                        <ul class="chat-box-body">
-                            <li>
-                                <p>
-                                    <img src="images/avatar/128.jpg" class="avt" /><span class="user">John Doe</span><span
-                                        class="time">09:33</span></p>
-                                <p>
-                                    Hi Swlabs, we have some comments for you.</p>
-                            </li>
-                            <li class="odd">
-                                <p>
-                                    <img src="images/avatar/48.jpg" class="avt" /><span class="user">Swlabs</span><span
-                                        class="time">09:33</span></p>
-                                <p>
-                                    Hi, we're listening you...</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="chat-textarea">
-                        <input placeholder="Type your message" class="form-control" /></div>
-                </div>
-            </div>
-            <!--END CHAT FORM-->
-            <!--BEGIN PAGE WRAPPER-->
             <div id="page-wrapper">
-                <!--BEGIN TITLE & BREADCRUMB PAGE-->
-                <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
-                    <div class="page-header pull-left">
-                        <div class="page-title">
-                            Dashboard</div>
-                    </div>
-                    <ol class="breadcrumb page-breadcrumb pull-right">
-                        <li><i class="fa fa-home"></i>&nbsp;<a href="dashboard.html">Home</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                        <li class="hidden"><a href="#">Dashboard</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
-                        <li class="active">Dashboard</li>
-                    </ol>
-                    <div class="clearfix">
-                    </div>
-                </div>
-                <!--END TITLE & BREADCRUMB PAGE-->
-                <!--BEGIN CONTENT-->
                 <div class="page-content">
                     <div id="tab-general">
                         <div id="sum_box" class="row mbl">
-                            <div class="col-sm-6 col-md-3">
-                                <div class="panel profit db mbm">
-                                    <div class="panel-body">
-                                        <p class="icon">
-                                            <i class="icon fa fa-shopping-cart"></i>
-                                        </p>
-                                        <h4 class="value">
-                                            <span data-counter="" data-start="10" data-end="50" data-step="1" data-duration="0">
-                                            </span><span>$</span></h4>
-                                        <p class="description">
-                                            Profit description</p>
-                                        <div class="progress progress-sm mbn">
-                                            <div role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 80%;" class="progress-bar progress-bar-success">
-                                                <span class="sr-only">80% Complete (success)</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-8">
                                 <div class="panel income db mbm">
                                     <div class="panel-body">
-                                        <p class="icon">
-                                            <i class="icon fa fa-money"></i>
-                                        </p>
-                                        <h4 class="value">
-                                            <span>215</span><span>$</span></h4>
-                                        <p class="description">
-                                            Income detail</p>
-                                        <div class="progress progress-sm mbn">
-                                            <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 60%;" class="progress-bar progress-bar-info">
-                                                <span class="sr-only">60% Complete (success)</span></div>
-                                        </div>
+                                        <p class="icon"><i class="icon fa fa-money">MDL</i></p>
+                                        <h4 class="value"><span>215</span><span></span></h4>
+                                        <p class="description">zi curenta</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
-                                <div class="panel task db mbm">
-                                    <div class="panel-body">
-                                        <p class="icon">
-                                            <i class="icon fa fa-signal"></i>
-                                        </p>
-                                        <h4 class="value">
-                                            <span>215</span></h4>
-                                        <p class="description">
-                                            Task completed</p>
-                                        <div class="progress progress-sm mbn">
-                                            <div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 50%;" class="progress-bar progress-bar-danger">
-                                                <span class="sr-only">50% Complete (success)</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="panel visit db mbm">
                                     <div class="panel-body">
                                         <p class="icon">
                                             <i class="icon fa fa-group"></i>
                                         </p>
-                                        <h4 class="value">
-                                            <span>128</span></h4>
-                                        <p class="description">
-                                            Visitor description</p>
-                                        <div class="progress progress-sm mbn">
-                                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-                                                style="width: 70%;" class="progress-bar progress-bar-warning">
-                                                <span class="sr-only">70% Complete (success)</span></div>
-                                        </div>
+                                        <h4 class="value"><span>128</span></h4>
+                                        <p class="description">Pasageri deserviti</p>
                                     </div>
                                 </div>
                             </div>
@@ -284,16 +132,7 @@
                             <div class="col-lg-12">
                                 <div class="panel">
                                     <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h4 class="mbs">
-                                                    Network Performance</h4>
-                                                <p class="help-block">
-                                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem...</p>
-                                                <div id="area-chart-spline" style="width: 100%; height: 300px">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-12">
                                                 <h4 class="mbm">
                                                     Server Status</h4>
                                                 <span class="task-item">CPU Usage (25 - 32 cpus)<small class="pull-right text-muted">40%</small><div
@@ -333,7 +172,6 @@
                                                 </div>
                                                 </span>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -352,49 +190,13 @@
     <script src="script/respond.min.js"></script>
     <script src="script/jquery.metisMenu.js"></script>
     <script src="script/jquery.slimscroll.js"></script>
-    <script src="script/jquery.cookie.js"></script>
     <script src="script/icheck.min.js"></script>
     <script src="script/custom.min.js"></script>
-    <script src="script/jquery.news-ticker.js"></script>
     <script src="script/jquery.menu.js"></script>
-    <script src="script/pace.min.js"></script>
-    <script src="script/holder.js"></script>
-    <script src="script/responsive-tabs.js"></script>
-    <script src="script/jquery.flot.js"></script>
-    <script src="script/jquery.flot.categories.js"></script>
-    <script src="script/jquery.flot.pie.js"></script>
-    <script src="script/jquery.flot.tooltip.js"></script>
-    <script src="script/jquery.flot.resize.js"></script>
-    <script src="script/jquery.flot.fillbetween.js"></script>
-    <script src="script/jquery.flot.stack.js"></script>
-    <script src="script/jquery.flot.spline.js"></script>
-    <script src="script/zabuto_calendar.min.js"></script>
     <script src="script/index.js"></script>
-    <!--LOADING SCRIPTS FOR CHARTS-->
-    <script src="script/highcharts.js"></script>
-    <script src="script/data.js"></script>
-    <script src="script/drilldown.js"></script>
-    <script src="script/exporting.js"></script>
-    <script src="script/highcharts-more.js"></script>
     <script src="script/charts-highchart-pie.js"></script>
-    <script src="script/charts-highchart-more.js"></script>
     <!--CORE JAVASCRIPT-->
     <script src="script/main.js"></script>
-    <script>        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-145464-12', 'auto');
-        ga('send', 'pageview');
-
-
-</script>
+    
 </body>
 </html>

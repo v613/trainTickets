@@ -3,17 +3,17 @@ include "connect" ;
 if (isset($_POST['submit']))
 	{
 		$train = $_POST['train'];
-		$train=mysql_fetch_row(mysql_query("SELECT id FROM train WHERE name='$train'"));
+		$train=mysql_fetch_array(mysql_query("SELECT id FROM train WHERE name='$train'"));
 		$train=$train[0];
 		$cityFrom = $_POST['cityFrom'];
 		$cityTo = $_POST['cityTo'];
 		$date = $_POST['date'];
 		$date2 = $_POST['date2'];
 		$insert = "INSERT INTO schedule (id_train, start,destination,start_time,destination_time)
-				   VALUES ('$train','$cityFrom','$cityTo','$cityTo','$date','$date2')";
+				   VALUES ('$train','$cityFrom','$cityTo','$date','$date2')";
 		$result=mysql_query($insert);
 			if($result === FALSE)
-				die(mysql_error());	
+				die(mysql_error());
 		
 	}
 ?>
@@ -46,7 +46,7 @@ if (isset($_POST['submit']))
 				    		<select class="form-control" name="train" required>
 	                      		<option ></option>
 	                      		<?php
-                      			$T = mysql_query("SELECT name FROM train ");
+                      			$T = mysql_query("SELECT name FROM train");
 								$t = mysql_fetch_array($T);
 								do
 									{

@@ -39,6 +39,7 @@
 									     	<li class="active"><a href="#">Principala</a></li>
 									        <li><a href="#listed">Preturi</a></li>
 									        <li><a href="#mapsy">Harta</a></li>
+									        <li><a href="admin/index.php">Administrare</a></li>
 									    </ul>
 									</div>
 								</nav>
@@ -125,54 +126,7 @@ function shedule() {
 			</div>
 		</section>
 		<!--listing section-->
-		<section class="feature" id="listed">
-			<div class="container">
-				<div class="row">
-					<div class="fea-head">
-						<div class="col-md-12">
-							<div class="sec-head">
-								<h2>Lista <span>Preturi</span></h2>
-								<hr></hr>
-							</div>
-						</div>
-						<div class="feature-slider col-md-12">
-						    <div id="owl-demo">    
-						      <div class="item">
-						      	<img src="img/student.png" alt="Owl Image">
-						      	<div class="img-info">
-						      		<h4>Student</h4>
-						      	</div>
-						      </div>
-						      <div class="item">
-						      	<img src="img/adult.png" alt="Owl Image">
-						      	<div class="img-info">
-						      		<h4>Adult</h4>
-						      	</div>
-						      </div>
-						      <div class="item">
-						      	<img src="img/senior.png" alt="Owl Image">
-						      	<div class="img-info">
-						      		<h4>Senior</h4>
-						      	</div>
-						      </div>
-						      <div class="item">
-						      	<img src="img/simplex.png" alt="Owl Image">
-						      	<div class="img-info">
-						      		<h4>Simplex</h4>
-						      	</div>
-						      </div>
-						      <div class="item">
-						      	<img src="img/lion.png" alt="Owl Image">
-						      	<div class="img-info">
-						      		<h4>Lion</h4>
-						      	</div>
-						      </div>
-						    </div>
-						</div>
-					</div>
-				</div> 
-			</div>
-		</section>
+		
 		<section class="feature" id="mapsy">
 			<div class="container">
 					<iframe src="https://www.google.com/maps/d/embed?mid=1vu7N1LgPW_CRaa8YkfLLZe8Z2q0" width="1150" height="680"></iframe>
@@ -184,8 +138,8 @@ function shedule() {
 					<ul class="footer-social">
 						<li><a href="#"><i class="fa fa-facebook" id="blue"></i></a></li>
 						<li><a href="#"><i class="fa fa-vk" id="red"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube" id="light-blue"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram" id="blue"></i></a></li>
+						<li><a href="https://www.youtube.com/user/TrainsInRomania/videos" target="_blank"><i class="fa fa-youtube" id="light-blue"></i></a></li>
+						<li><a href="https://www.instagram.com/explore/tags/trainrailway/?hl=en" target="_blank"><i class="fa fa-instagram" id="blue"></i></a></li>
 					</ul>
 				</div>
 			</div>

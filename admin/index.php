@@ -24,7 +24,18 @@
     <link type="text/css" rel="stylesheet" href="styles/jquery.news-ticker.css">
 </head>
 <body>
-    <div>
+    <?php
+    include "connect" ;
+    if(isset($_POST['submit']))
+        {
+            $login=$_POST['login'];
+            $paswd=$_POST['paswd'];
+            $date=mysql_fetch_row(mysql_query("SELECT last_date FROM admins WHERE paswd='$paswd' AND login='$login'"));
+            $date=$date[0];
+            $upd = mysql_query("UPDATE admins SET last_date=now() WHERE paswd='$paswd' AND login='$login'");
+            if($upd === FALSE)
+                {die(mysql_error());}
+            echo('<div>
         <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
         <div id="header-topbar-option-demo" class="page-header-topbar">
             <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
@@ -34,43 +45,11 @@
             <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
                 <ul class="nav navbar navbar-top-links navbar-right mbn">
                    
-                    <li >Focsa Petru</li>
+                    <li>Focsa Petru</li>
                     <li><a href="../">Log Out</a></li>
                 </ul>
             </div>
         </nav>
-            <!--BEGIN MODAL CONFIG PORTLET-->
-            <div id="modal-config" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">
-                                &times;</button>
-                            <h4 class="modal-title">
-                                Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend et nisl eget
-                                porta. Curabitur elementum sem molestie nisl varius, eget tempus odio molestie.
-                                Nunc vehicula sem arcu, eu pulvinar neque cursus ac. Aliquam ultricies lobortis
-                                magna et aliquam. Vestibulum egestas eu urna sed ultricies. Nullam pulvinar dolor
-                                vitae quam dictum condimentum. Integer a sodales elit, eu pulvinar leo. Nunc nec
-                                aliquam nisi, a mollis neque. Ut vel felis quis tellus hendrerit placerat. Vivamus
-                                vel nisl non magna feugiat dignissim sed ut nibh. Nulla elementum, est a pretium
-                                hendrerit, arcu risus luctus augue, mattis aliquet orci ligula eget massa. Sed ut
-                                ultricies felis.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-default">
-                                Close</button>
-                            <button type="button" class="btn btn-primary">
-                                Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--END MODAL CONFIG PORTLET-->
         </div>
         <!--END TOPBAR-->
         <div id="wrapper">
@@ -180,7 +159,36 @@
             </div>
             <!--END PAGE WRAPPER-->
         </div>
-    </div>
+    </div>');
+        }
+    else
+        {
+            echo ('<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">Login</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block" name="loginForm" method="POST" action="index.php">
+            <div class="form-group">
+              <input name="login" type="text" class="form-control input-lg" placeholder="Nume">
+            </div>
+            <div class="form-group">
+              <input name="paswd" type="password" class="form-control input-lg" placeholder="Parola">
+            </div>
+            <div class="form-group">
+              <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Autentificare</button>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">  
+      </div>
+  </div>
+  </div>
+</div>');
+        }
+    ?>
     <script src="script/jquery-1.10.2.min.js"></script>
     <script src="script/jquery-migrate-1.2.1.min.js"></script>
     <script src="script/jquery-ui.js"></script>

@@ -2,59 +2,31 @@
 include "admin/connect" ;
 if(isset($_GET['sch']))
 	{echo "<script>console.log('petros naghibator XXXL');</script>";}
-else
-	{echo "<script>window.close();</script>";}
+error_reporting(0);
+
 $sch_id=$_GET['sch'];
 $querry = mysql_fetch_row(mysql_query("SELECT * FROM schedule WHERE id=$sch_id"));
 $querryTrain=mysql_fetch_row(mysql_query("SELECT name,place FROM train WHERE id=$querry[1]"));
 $numOfOrders=mysql_fetch_row(mysql_query("SELECT COUNT(sch_id) FROM orders"));
-$numOfOrders=$numOfOrders[0];
-$free=$querryTrain[1] - $numOfOrders;
-$price = mysql_fetch_array(mysql_query("SELECT distance FROM city"));
-$price = $price[0]*5;
+$numOfOrders=$numOfOrders[0];$free=$querryTrain[1] - $numOfOrders;
+$price1 = mysql_fetch_row(mysql_query("SELECT distance FROM city WHERE name='$querry[2]'"));$price1 = $price1[0];
+$price2 = mysql_fetch_row(mysql_query("SELECT distance FROM city WHERE name='$querry[3]'"));$price2 = $price2[0];
+$price = ($price2 - $price1)*5;
 if (isset($_POST['submit']))
-	{
-		$client = $_POST['name'];
-		$mail = $_POST['mail'];
-		$sch_id = $_POST['id'];
-		$place = $_POST['phpPOS'];
-		$plecare = $_POST['plecare'];
-		$cursa = $_POST['cursa'];
-		$sosire = $_POST['sosire'];
-		$price = $_POST['price'];
-		$insert = "INSERT INTO orders (client, sch_id,price,place)
-				   VALUES ('$client','$sch_id','$price','$place')";
-		$result=mysql_query($insert);
-			if($result === FALSE)
-				die(mysql_error());
+	{session_start();
+		$client = $_POST['name'];$_SESSION["client"]=$client;
+		$mail = $_POST['mail'];$_SESSION["mail"]=$mail;
+		$sch_id = $_POST['id'];$_SESSION["sch_id"]=$sch_id;
+		$place = $_POST['phpPOS'];$_SESSION["place"]=$place;
+		$plecare = $_POST['plecare'];$_SESSION["plecare"]=$plecare;
+		$cursa = $_POST['cursa'];$_SESSION["cursa"]=$cursa;
+		$sosire = $_POST['sosire'];$_SESSION["sosire"]=$sosire;
+		$price = $_POST['price'];$_SESSION["price"]=$price;
+	$insert = "INSERT INTO orders (client, sch_id,price,place)VALUES ('$client','$sch_id','$price','$place')";
+	$result=mysql_query($insert);
+		if($result === FALSE)die(mysql_error());
+		echo ("<script>document.write('\"<hr><h1>Bilet ROTT ADASDASd</h1><label>Nume Prenume: $_SESSION[client] </label><br><label>Email: $_SESSION[mail] </label><br><label>Plecare: $_SESSION[plecare]</label><br><label>Sosire: $_SESSION[sosire]</label><br><label>Locul $_SESSION[place]</label><br><label>Pret:$_SESSION[price] MDL</label>\"');document.documentElement.innerHTML='<hr><h1>Bilet ROTT ADASDASd</h1><label>Nume Prenume: $_SESSION[client] </label><br><label>Email: $_SESSION[mail] </label><br><label>Plecare: $_SESSION[plecare]</label><br><label>Sosire: $_SESSION[sosire]</label><br><label>Locul $_SESSION[place]</label><br><label>Pret:$_SESSION[price] MDL</label>';</script>");
 
-$subject = "Rezervare Bilet ROTT";
-
-$message = "
-<html>
-<head>
-<title>Bilet ROTT</title>
-</head>
-<body>
-<hr>
-    				<label>Titular: $client </label><br>
-    				<label>Cursa: $cursa</label><br>
-    				<label>Plecare: $plecare</label><br>
-    				<label>Sosire: $sosire </label><br>
-    				<label>Locul: $place</label><br>
-    				<label>Pret: $price MDL</label>
-</hr>
-</body>
-</html>
-";
-
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <reserve@rott.md>' . "\r\n";
-
-mail($mail,$subject,$message,$headers);
 	}
 ?>
 <!DOCTYPE html>
@@ -97,7 +69,6 @@ mail($mail,$subject,$message,$headers);
 			<div id="send">
 			<hr>
     				<label>Titular: {{name}} </label><br>
-    				<label>Cursa: <?php echo "$querryTrain[0] $sch_id";?> </label><br>
     				<label>Plecare: <?php echo "$querry[2] > $querry[4]";?> </label><br>
     				<label>Sosire: <?php echo "$querry[3] > $querry[5]";?> </label><br>
     				<label id="pos">Locul: </label><br>

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>ROTT</title>
+	<link rel="icon" type="image/png" href="favicon.png">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -39,6 +40,8 @@
 									     	<li class="active"><a href="#">Principala</a></li>
 									        <li><a href="#listed">Preturi</a></li>
 									        <li><a href="#mapsy">Harta</a></li>
+									        <li><a href="regulament.php">Regulament</a></li>
+									        <li><a href="news.php">Stiri</a></li>
 									        <li><a href="admin/index.php">Administrare</a></li>
 									    </ul>
 									</div>
@@ -136,7 +139,7 @@ function shedule() {
 			<div class="container">
 				<div class="row text-center">
 					<ul class="footer-social">
-						<li><a href="#"><i class="fa fa-facebook" id="blue"></i></a></li>
+						<li><a href="https://www.facebook.com/Bilete-Tren-MD-516991975176715/"><i class="fa fa-facebook" id="blue"></i></a></li>
 						<li><a href="#"><i class="fa fa-vk" id="red"></i></a></li>
 						<li><a href="https://www.youtube.com/user/TrainsInRomania/videos" target="_blank"><i class="fa fa-youtube" id="light-blue"></i></a></li>
 						<li><a href="https://www.instagram.com/explore/tags/trainrailway/?hl=en" target="_blank"><i class="fa fa-instagram" id="blue"></i></a></li>

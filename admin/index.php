@@ -79,6 +79,20 @@
                             </i><span class="menu-title">Editeaza Orar</span>
                         </a>
                     </li>
+                      <li>
+                        <a href="add-news.php">
+                            <i class="fa fa-desktop fa-fw">
+                                <div class="icon-bg bg-pink"></div>
+                            </i><span class="menu-title">Adauga Stire</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="edit-news.php">
+                            <i class="fa fa-edit fa-fw">
+                                <div class="icon-bg bg-violet"></div>
+                            </i><span class="menu-title">Editeaza Stire</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 25, 2016 at 02:08 
+-- Generation Time: Jun 02, 2016 at 12:48 
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -30,15 +30,15 @@ CREATE TABLE `admins` (
   `id` int(3) NOT NULL,
   `paswd` varchar(30) NOT NULL,
   `login` varchar(30) NOT NULL,
-  `last-date` datetime NOT NULL
+  `last_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `paswd`, `login`, `last-date`) VALUES
-(1, 'petros-naghibatorXXXL', 'petru', '2016-05-24 08:00:00');
+INSERT INTO `admins` (`id`, `paswd`, `login`, `last_date`) VALUES
+(1, 'petros-naghibatorXXXL', 'petru', '2016-06-02 13:25:40');
 
 -- --------------------------------------------------------
 
@@ -85,22 +85,24 @@ INSERT INTO `city` (`name`, `distance`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clients`
+-- Table structure for table `news`
 --
 
-CREATE TABLE `clients` (
+CREATE TABLE `news` (
   `id` int(11) NOT NULL,
-  `first-name` varchar(15) NOT NULL,
-  `second-name` varchar(15) NOT NULL,
-  `id-order` int(10) NOT NULL
+  `title` varchar(25) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `text` text NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `clients`
+-- Dumping data for table `news`
 --
 
-INSERT INTO `clients` (`id`, `first-name`, `second-name`, `id-order`) VALUES
-(1, 'FOCSA', 'PETRU', 1);
+INSERT INTO `news` (`id`, `title`, `description`, `text`, `date`) VALUES
+(1, 'Ziua Copiilor', 'Cu prilejul Zilei ocrotirii copilului, in data de 1 iunie, CFM va oferi bilete de calatorie gratuite pentru fiecare parinte insotit de copilul sau cu virsta de pina la 7 ani.', 'An de an, ï¿½n prima zi de var? este celebrat? Ziua Interna?ional? a Copilului. ï¿½.S. ï¿½Calea Ferat? din Moldovaï¿½ continu? s? promoveze valorile unei societ??i formate din familii ï¿½mplinite, s?n?toase ?i fericite. Copiii din ?ara noastr? au tot mai mult? nevoie de sprijin, afec?iune ?i aten?ia p?rin?ilor.\r\n\r\nCu prilejul Zilei ocrotirii copilului, ï¿½n data de 1 iunie, CFM va oferi bilete de c?l?torie gratuite pentru fiecare p?rinte ï¿½nso?it de copilul s?u cu vï¿½rsta de pï¿½n? la 7 ani.\r\n\r\nDecizia luat? de Directorul General al ï¿½.S. Calea Ferat? din Moldova, Iurii Topala, vine s? sus?in? participarea tinerei genera?ii ï¿½n cadrul  evenimentelor  cultural-artistice dedicate Zilei ocrotirii copilului, precum ?i s? ofere micu?ilor posibilitatea de a cunoa?te o nou? experien?? - c?l?toria cu trenul.\r\n\r\nPe lï¿½ng? aceasta, miercuri, sediul Direc?iei CFM se va transform? ï¿½ntr-o galerie cu operele de art? ale copiilor ai c?ror p?rin?i sunt angaja?i ï¿½n cadrul ï¿½.S. ï¿½Calea Ferat? din Moldovaï¿½.', '2016-06-02 13:42:59'),
+(2, 'Topala si Executivul RO', 'Directorul General al ï¿½.S. ï¿½Calea Ferat? din Moldovaï¿½, Iurii Topala, prezent la gara, a transmis un mesaj de multumire Executivului din Romania pentru suportul considerabil pe care ï¿½l acord?', '1300 de tone de p?cur?, puse la dispozi?ie de Guvernul Romï¿½niei, au fost transportate pe liniile de cale ferat? a celor dou? ??ri. Gara Feroviar? din Chi?in?u a fost punctul de destina?ie a garniturii care a adus, ast?zi, cele 24 de cisterne. Mai mul?i oficiali din Moldova, printre care Vicepremierul Gheorghe Brega, al?turi de Ambasadorul Romï¿½niei la Chi?in?u, Marius Lazurc?, au ï¿½ntï¿½mpinat locomotiva.\r\n\r\nDirectorul General al ï¿½.S. ï¿½Calea Ferat? din Moldovaï¿½, Iurii Topala, prezent la gar?, a transmis un mesaj de mul?umire Executivului din Romï¿½nia pentru suportul considerabil pe care ï¿½l acord? Republicii Moldova.\r\n\r\nPotrivit oficialilor, p?cura va fi p?strat? ï¿½n depozitele Termoelectrica SA ?i va fi folosit? pentru ï¿½nc?lzirea ora?ului Chi?in?u ï¿½n sezonul rece. Aceasta va servi ?i ca subven?ii la ï¿½nc?lzire pentru 40 de mii de locuitori social vulnerabili din municipiul Chi?in?u.', '2016-06-02 13:43:20');
 
 -- --------------------------------------------------------
 
@@ -110,20 +112,22 @@ INSERT INTO `clients` (`id`, `first-name`, `second-name`, `id-order`) VALUES
 
 CREATE TABLE `orders` (
   `id` int(10) NOT NULL,
-  `start` varchar(20) NOT NULL,
-  `destination` varchar(20) NOT NULL,
+  `client` varchar(50) NOT NULL,
+  `sch_id` int(11) NOT NULL,
   `price` int(4) NOT NULL,
-  `id_train` int(3) NOT NULL,
-  `start_time` datetime NOT NULL,
-  `destination_time` datetime NOT NULL
+  `place` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `start`, `destination`, `price`, `id_train`, `start_time`, `destination_time`) VALUES
-(1, 'Chisinau', 'Causeni', 150, 3, '2016-05-23 12:25:00', '2016-05-24 13:00:00');
+INSERT INTO `orders` (`id`, `client`, `sch_id`, `price`, `place`) VALUES
+(1, 'Focsa Petru', 1, 150, 2),
+(2, 'Ceban Dumitru', 1, 175, 19),
+(7, 'Ion Tronciu', 3, 175, 32),
+(9, 'Chiriliuc Silvia', 3, 175, 18),
+(11, 'Ceban Dumitru', 1, 300, 20);
 
 -- --------------------------------------------------------
 
@@ -136,8 +140,8 @@ CREATE TABLE `schedule` (
   `id_train` int(2) NOT NULL,
   `start` varchar(20) NOT NULL,
   `destination` varchar(20) NOT NULL,
-  `start_time` datetime NOT NULL,
-  `destination_time` datetime NOT NULL
+  `start_time` varchar(20) NOT NULL,
+  `destination_time` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -145,7 +149,9 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`id`, `id_train`, `start`, `destination`, `start_time`, `destination_time`) VALUES
-(1, 6, 'Chisinau', 'Bender', '2016-05-25 06:00:00', '2016-05-25 08:00:00');
+(1, 6, 'Chisinau', 'Bender', '05/25/2016 7:00 PM', '05/25/2016 8:30 PM'),
+(3, 3, 'Cahul', 'Causeni', '05/30/2016 2:15 PM', '05/30/2016 4:15 PM'),
+(4, 1, 'Anenii Noi', 'Basarabeasca', '05/29/2016 10:26 PM', '05/30/2016 10:26 PM');
 
 -- --------------------------------------------------------
 
@@ -207,9 +213,9 @@ ALTER TABLE `city`
   ADD PRIMARY KEY (`name`);
 
 --
--- Indexes for table `clients`
+-- Indexes for table `news`
 --
-ALTER TABLE `clients`
+ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -246,20 +252,20 @@ ALTER TABLE `types`
 ALTER TABLE `admins`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `clients`
+-- AUTO_INCREMENT for table `news`
 --
-ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `train`
 --

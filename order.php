@@ -11,7 +11,7 @@ $numOfOrders=mysql_fetch_row(mysql_query("SELECT COUNT(sch_id) FROM orders"));
 $numOfOrders=$numOfOrders[0];$free=$querryTrain[1] - $numOfOrders;
 $price1 = mysql_fetch_row(mysql_query("SELECT distance FROM city WHERE name='$querry[2]'"));$price1 = $price1[0];
 $price2 = mysql_fetch_row(mysql_query("SELECT distance FROM city WHERE name='$querry[3]'"));$price2 = $price2[0];
-$price = ($price2 - $price1)*5;
+$price = ($price2 - $price1)*0.5;
 if (isset($_POST['submit']))
 	{session_start();
 		$client = $_POST['name'];$_SESSION["client"]=$client;
@@ -72,7 +72,7 @@ if (isset($_POST['submit']))
     				<label>Plecare: <?php echo "$querry[2] > $querry[4]";?> </label><br>
     				<label>Sosire: <?php echo "$querry[3] > $querry[5]";?> </label><br>
     				<label id="pos">Locul: </label><br>
-    				<label>Pret: <?php echo $price;?> MDL</label>
+    				<label>Pret: <?php echo abs($price)?> MDL</label>
     		</div>
 		</div>
 		<script>

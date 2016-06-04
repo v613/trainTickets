@@ -30,6 +30,7 @@
         {
             $login=$_POST['login'];
             $paswd=$_POST['paswd'];
+            check($login,$paswd);
             $date=mysql_fetch_row(mysql_query("SELECT last_date FROM admins WHERE paswd='$paswd' AND login='$login'"));
             $date=$date[0];
             $upd = mysql_query("UPDATE admins SET last_date=now() WHERE paswd='$paswd' AND login='$login'");
@@ -222,3 +223,13 @@
     
 </body>
 </html>
+<?php
+function check($login, $password)
+    {
+        if($login=='' OR $password=='')
+            {header('location:'.$_SERVER['PHP_SELF']);die();}
+        $querry = mysql_query("SELECT * FROM admins WHERE paswd='$password' AND login='$login'");
+            if($querry === FALSE OR empty(mysql_fetch_row($querry)))
+                {die(mysql_error()); header('location:'.$_SERVER['PHP_SELF']);die();}
+    }
+?>

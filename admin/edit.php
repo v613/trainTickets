@@ -1,6 +1,11 @@
 <?
 include "connect";
-$range=1;
+$range;
+if(!isset($_GET['p']))
+	$range=1;
+else
+	$range=$_GET['p'];
+
 if(isset($_POST['submit']))
 	{
 		$train = $_POST['train'];

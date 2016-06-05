@@ -229,7 +229,7 @@ function check($login, $password)
         if($login=='' OR $password=='')
             {header('location:'.$_SERVER['PHP_SELF']);die();}
         $querry = mysql_query("SELECT * FROM admins WHERE paswd='$password' AND login='$login'");
-            if($querry === FALSE OR empty(mysql_fetch_row($querry)))
-                {die(mysql_error()); header('location:'.$_SERVER['PHP_SELF']);die();}
+            if($querry === FALSE OR mysql_num_rows($querry)<=0)
+                {header('location:'.$_SERVER['PHP_SELF']);die();}
     }
 ?>

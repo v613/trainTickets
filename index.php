@@ -1,17 +1,32 @@
-<?php include "admin/connect"; ?>
+<?php
+require_once 'model.php';
+require_once 'controller.php';
+require_once 'view.php';
+//conectare la o baza de date
+$db=new DatabaseConnect("localhost","trainTickets","root","");
+$model=new Model();
+$controller=new Controller($model);
+$view=new View($model,$controller);
+
+if(isset($_GET['action']) && $_GET['action']=='changeTitle')
+	{
+		$view->refreshTitle();
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>ROTT</title>
-	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="icon" type="image/png" href="../favicon.png">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-  	<script src="jquery.quovolver.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="../css/owl.carousel.css">
+  	<script src="../js/jquery.quovolver.min.js"></script>
 	<!--[if lt IE 9]-->
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -33,15 +48,15 @@
 									       <span class="icon-bar"></span>
 									       <span class="icon-bar"></span>
 									    </button>
-									    <a class="navbar-brand" href="#"><span class="grey">RO</span>TT</a>
+									    <a class="navbar-brand" href="index.php?action=changeTitle"><span class="grey">RO</span>TT</a>
 									</div>
 									<div class="collapse navbar-collapse navbar-right" id="myNavbar">
 									    <ul class="nav navbar-nav">
-									     	<li class="active"><a href="#">Principala</a></li>
-									        <li><a href="#listed">Preturi</a></li>
-									        <li><a href="#mapsy">Harta</a></li>
-									        <li><a href="regulament.php">Regulament</a></li>
-									        <li><a href="news.php">Stiri</a></li>
+									     	<li class="active"><a href="index.php">Principala</a></li>
+									        <li><a href="index.php?#listed">Preturi</a></li>
+									        <li><a href="index.php?#mapsy">Harta</a></li>
+									        <li><a href="index.php?action=regulament">Regulament</a></li>
+									        <li><a href="index.php?action=news">Stiri</a></li>
 									        <li><a href="admin/index.php">Administrare</a></li>
 									    </ul>
 									</div>
@@ -54,6 +69,16 @@
 				<!--banner starts-->
 				<div class="banner-text">
 					<div class="container">
+						<?php
+						if(isset($_GET['action']) && $_GET['action']=='news')
+							{
+								$view->getPage('news');
+							}
+						if(isset($_GET['action']) && $_GET['action']=='regulament')
+						{
+							$view->getPage('regulament');
+						}
+						?>
 						<div class="row">
 							<div class="banner-info text-center">
 								<h2><span class="grey">ROTT</span> - Reserve Online Train Tickets</h2>
@@ -156,13 +181,13 @@ function shedule() {
 				</div>
 			</div>
 		</section>
-		<script src="js/jquery.min.js"></script>
-    	<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery-1.11.3.min.js"></script>
-		<script src="js/jquery-1.9.1.min.js"></script> 
-    	<script src="js/owl.carousel.js"></script>
-    	<script src="js/jquery.mixitup.js" type="text/javascript"></script>
-    	<script type="text/javascript" src="js/jquery.quovolver.js"></script>
+		<script src="../js/jquery.min.js"></script>
+    	<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/jquery-1.9.1.min.js"></script> 
+    	<script src="../js/owl.carousel.js"></script>
+    	<script src="../js/jquery.mixitup.js" type="text/javascript"></script>
+    	<script type="text/javascript" src="../js/jquery.quovolver.js"></script>
     	<!--for smooth scrolling-->
 		    	<script>
 			$(function() {

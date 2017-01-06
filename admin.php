@@ -1,35 +1,55 @@
+<?php
+    // clasa necesara pentru conexiunea cu baza de date 
+    require_once "model.php";
+    require_once "view.php";
+    require_once "controller.php";
+    // datale necesare pentru conexiunea la o baza de date
+    $db=new DatabaseConnect("localhost","trainTickets","root","");
+
+    session_start();
+
+    $model=new Model();
+    $controller=new Controller($model);
+    $view=new View($model,$controller);
+    // setam titlu paginii
+    $view->refreshTitle("Administratia | ROTT");
+    
+    // iesirea din sesiunea curenta de administrare
+    if(isset($_GET['logout']))
+        {
+            session_destroy(void);
+            header("Location: index.php");
+            exit;
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Administratia | ROTT</title>
+    <title></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="images/icons/favicon.png">
+    <link rel="shortcut icon" href="../admin/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="../admin/images/icons/favicon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
     <!--Loading bootstrap css-->
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-    <link type="text/css" rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/animate.css">
-    <link type="text/css" rel="stylesheet" href="styles/all.css">
-    <link type="text/css" rel="stylesheet" href="styles/main.css">
-    <link type="text/css" rel="stylesheet" href="styles/style-responsive.css">
-    <link type="text/css" rel="stylesheet" href="styles/zabuto_calendar.min.css">
-    <link type="text/css" rel="stylesheet" href="styles/pace.css">
-    <link type="text/css" rel="stylesheet" href="styles/jquery.news-ticker.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/animate.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/all.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/main.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/style-responsive.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/zabuto_calendar.min.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/pace.css">
+    <link type="text/css" rel="stylesheet" href="../admin/styles/jquery.news-ticker.css">
 </head>
 <body>
-    <?php
-    // clasa necesara pentru conexiunea cu baza de date 
-    require_once "model.php";
-    // datale necesare pentru conexiunea la o baza de date
-    $db=new DatabaseConnect("localhost","trainTickets","root","");
-    
+    <?php    
     if(isset($_POST['submit']))
         {
             $login=$_POST['login'];
@@ -46,12 +66,12 @@
             <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
                 <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a id="logo" href="index.html" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">ROTT</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
+                <a id="logo" href="admin.php" class="navbar-brand"><span class="fa fa-rocket"></span><span class="logo-text">ROTT MVC</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
             <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
                 <ul class="nav navbar navbar-top-links navbar-right mbn">
                    
                     <li>Focsa Petru</li>
-                    <li><a href="../">Log Out</a></li>
+                    <li><a href="admin.php?logout">Log Out</a></li>
                 </ul>
             </div>
         </nav>
@@ -208,22 +228,22 @@
 </div>');
         }
     ?>
-    <script src="script/jquery-1.10.2.min.js"></script>
-    <script src="script/jquery-migrate-1.2.1.min.js"></script>
-    <script src="script/jquery-ui.js"></script>
-    <script src="script/bootstrap.min.js"></script>
-    <script src="script/bootstrap-hover-dropdown.js"></script>
-    <script src="script/html5shiv.js"></script>
-    <script src="script/respond.min.js"></script>
-    <script src="script/jquery.metisMenu.js"></script>
-    <script src="script/jquery.slimscroll.js"></script>
-    <script src="script/icheck.min.js"></script>
-    <script src="script/custom.min.js"></script>
-    <script src="script/jquery.menu.js"></script>
-    <script src="script/index.js"></script>
-    <script src="script/charts-highchart-pie.js"></script>
+    <script src="../admin/script/jquery-1.10.2.min.js"></script>
+    <script src="../admin/script/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../admin/script/jquery-ui.js"></script>
+    <script src="../admin/script/bootstrap.min.js"></script>
+    <script src="../admin/script/bootstrap-hover-dropdown.js"></script>
+    <script src="../admin/script/html5shiv.js"></script>
+    <script src="../admin/script/respond.min.js"></script>
+    <script src="../admin/script/jquery.metisMenu.js"></script>
+    <script src="../admin/script/jquery.slimscroll.js"></script>
+    <script src="../admin/script/icheck.min.js"></script>
+    <script src="../admin/script/custom.min.js"></script>
+    <script src="../admin/script/jquery.menu.js"></script>
+    <script src="../admin/script/index.js"></script>
+    <script src="../admin/script/charts-highchart-pie.js"></script>
     <!--CORE JAVASCRIPT-->
-    <script src="script/main.js"></script>
+    <script src="../admin/script/main.js"></script>
     
 </body>
 </html>

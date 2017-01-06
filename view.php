@@ -10,9 +10,9 @@ class View
 				$this->Controller=$controller;
 			}
 
-		public function refreshTitle()
+		public function refreshTitle($NewTitle)
 			{
-				echo("<script>document.title='".$this->Controller->changeTitle()."'</script>");
+				echo("<script>document.title='".$this->Controller->changeTitle($NewTitle)."';</script>");
 			}
 		public function getPage($page)
 			{

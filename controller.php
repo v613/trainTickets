@@ -7,9 +7,9 @@ class Controller
 			{
 				$this->Model=$model;
 			}
-		public function changeTitle()
+		public function changeTitle($NewTitle)
 			{
-				$this->Model->PageTitle="ROTT MVC";
+				$this->Model->PageTitle="$NewTitle";
 				return $this->Model->PageTitle;
 			}
 	}

@@ -17,9 +17,7 @@
     // iesirea din sesiunea curenta de administrare
     if(isset($_GET['logout']))
         {
-            session_destroy(void);
-            header("Location: index.php");
-            exit;
+            $view->Controller->Model->destroy();
         }
 
 ?>
@@ -30,23 +28,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../admin/images/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="../admin/images/icons/favicon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon-114x114.png">
+    <link rel="shortcut icon" href="admin/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="admin/images/icons/favicon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="admin/images/icons/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="admin/images/icons/favicon-114x114.png">
     <!--Loading bootstrap css-->
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700">
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/jquery-ui-1.10.4.custom.min.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/animate.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/all.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/main.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/style-responsive.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/zabuto_calendar.min.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/pace.css">
-    <link type="text/css" rel="stylesheet" href="../admin/styles/jquery.news-ticker.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/animate.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/all.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/main.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/style-responsive.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/zabuto_calendar.min.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/pace.css">
+    <link type="text/css" rel="stylesheet" href="admin/styles/jquery.news-ticker.css">
 </head>
 <body>
     <?php    
@@ -60,8 +58,9 @@
             $upd = mysql_query("UPDATE admins SET last_date=now() WHERE paswd='$paswd' AND login='$login'");
             if($upd === FALSE)
                 {die(mysql_error());}
-            echo('<div>
-        <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+            /*if(isset($_SESSION['login']) && isset($_SESSION['passwd']))
+                {*/
+                    echo('<div><a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
         <div id="header-topbar-option-demo" class="page-header-topbar">
             <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
@@ -91,28 +90,28 @@
                         </a>
                     </li>
                     <li>
-                        <a href="add.php">
+                        <a href="admin/add.php">
                             <i class="fa fa-desktop fa-fw">
                                 <div class="icon-bg bg-pink"></div>
                             </i><span class="menu-title">Adauga Orar</span>
                         </a>
                     </li>
                     <li>
-                        <a href="edit.php">
+                        <a href="admin/edit.php">
                             <i class="fa fa-edit fa-fw">
                                 <div class="icon-bg bg-violet"></div>
                             </i><span class="menu-title">Editeaza Orar</span>
                         </a>
                     </li>
                       <li>
-                        <a href="add-news.php">
+                        <a href="admin/add-news.php">
                             <i class="fa fa-desktop fa-fw">
                                 <div class="icon-bg bg-pink"></div>
                             </i><span class="menu-title">Adauga Stire</span>
                         </a>
                     </li>
                     <li>
-                        <a href="edit-news.php">
+                        <a href="admin/edit-news.php">
                             <i class="fa fa-edit fa-fw">
                                 <div class="icon-bg bg-violet"></div>
                             </i><span class="menu-title">Editeaza Stire</span>
@@ -146,6 +145,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row mbl">
                             <div class="col-lg-12">
                                 <div class="panel">
@@ -228,22 +228,22 @@
 </div>');
         }
     ?>
-    <script src="../admin/script/jquery-1.10.2.min.js"></script>
-    <script src="../admin/script/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../admin/script/jquery-ui.js"></script>
-    <script src="../admin/script/bootstrap.min.js"></script>
-    <script src="../admin/script/bootstrap-hover-dropdown.js"></script>
-    <script src="../admin/script/html5shiv.js"></script>
-    <script src="../admin/script/respond.min.js"></script>
-    <script src="../admin/script/jquery.metisMenu.js"></script>
-    <script src="../admin/script/jquery.slimscroll.js"></script>
-    <script src="../admin/script/icheck.min.js"></script>
-    <script src="../admin/script/custom.min.js"></script>
-    <script src="../admin/script/jquery.menu.js"></script>
-    <script src="../admin/script/index.js"></script>
-    <script src="../admin/script/charts-highchart-pie.js"></script>
+    <script src="admin/script/jquery-1.10.2.min.js"></script>
+    <script src="admin/script/jquery-migrate-1.2.1.min.js"></script>
+    <script src="admin/script/jquery-ui.js"></script>
+    <script src="admin/script/bootstrap.min.js"></script>
+    <script src="admin/script/bootstrap-hover-dropdown.js"></script>
+    <script src="admin/script/html5shiv.js"></script>
+    <script src="admin/script/respond.min.js"></script>
+    <script src="admin/script/jquery.metisMenu.js"></script>
+    <script src="admin/script/jquery.slimscroll.js"></script>
+    <script src="admin/script/icheck.min.js"></script>
+    <script src="admin/script/custom.min.js"></script>
+    <script src="admin/script/jquery.menu.js"></script>
+    <script src="admin/script/index.js"></script>
+    <script src="admin/script/charts-highchart-pie.js"></script>
     <!--CORE JAVASCRIPT-->
-    <script src="../admin/script/main.js"></script>
+    <script src="admin/script/main.js"></script>
     
 </body>
 </html>

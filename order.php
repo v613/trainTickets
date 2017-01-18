@@ -1,5 +1,7 @@
 <?php
-include "admin/connect" ;
+require_once "model.php";
+$db=new DatabaseConnect("localhost","trainTickets","root","");
+
 if(isset($_GET['sch']))
 	{echo "<script>console.log('petros naghibator XXXL');</script>";}
 error_reporting(0);

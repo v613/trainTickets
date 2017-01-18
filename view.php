@@ -44,11 +44,8 @@ do
 echo "</div>";
 
 						break;
-					case 'regulament': include "regulament.txt";
-						break;
-					default:
-						# code...
-						break;
+					case 'regulament': include "regulament.txt";break;
+					case 'add_1' : $this->Controller->GenerateNewBlock("add_1");break;
 			}
 	}
 }

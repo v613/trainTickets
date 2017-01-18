@@ -10,9 +10,8 @@ $view=new View($model,$controller);
 
 if(isset($_GET['action']) && $_GET['action']=='changeTitle')
 	{
-		$view->refreshTitle();
+		$view->refreshTitle("ROTT MVC");
 	}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +19,13 @@ if(isset($_GET['action']) && $_GET['action']=='changeTitle')
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>ROTT</title>
-	<link rel="icon" type="image/png" href="../favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-	<link href="../css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../style.css">
-	<link rel="stylesheet" type="text/css" href="../css/owl.carousel.css">
-  	<script src="../js/jquery.quovolver.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+  	<script src="js/jquery.quovolver.min.js"></script>
 	<!--[if lt IE 9]-->
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -57,7 +56,7 @@ if(isset($_GET['action']) && $_GET['action']=='changeTitle')
 									        <li><a href="index.php?#mapsy">Harta</a></li>
 									        <li><a href="index.php?action=regulament">Regulament</a></li>
 									        <li><a href="index.php?action=news">Stiri</a></li>
-									        <li><a href="admin/index.php">Administrare</a></li>
+									        <li><a href="admin.php">Administrare</a></li>
 									    </ul>
 									</div>
 								</nav>
@@ -181,13 +180,13 @@ function shedule() {
 				</div>
 			</div>
 		</section>
-		<script src="../js/jquery.min.js"></script>
-    	<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery-1.11.3.min.js"></script>
-		<script src="../js/jquery-1.9.1.min.js"></script> 
-    	<script src="../js/owl.carousel.js"></script>
-    	<script src="../js/jquery.mixitup.js" type="text/javascript"></script>
-    	<script type="text/javascript" src="../js/jquery.quovolver.js"></script>
+		<script src="js/jquery.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script> 
+    	<script src="js/owl.carousel.js"></script>
+    	<script src="js/jquery.mixitup.js" type="text/javascript"></script>
+    	<script type="text/javascript" src="js/jquery.quovolver.js"></script>
     	<!--for smooth scrolling-->
 		    	<script>
 			$(function() {

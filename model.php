@@ -7,7 +7,7 @@ class DatabaseConnect
 		var $host;
 		function __construct($host,$database,$user,$passwd)
 			{
-				global $connect;
+				// global $connect;
 				/* Asignarea datelor necesare pentru conectarea la baza de date*/
 				$this->host=$host;
 				$this->database=$database;
@@ -26,6 +26,18 @@ class Model
 		function __construct()
 			{
 				$this->PageTitle='ROTT';
+			}
+		public function destroy()
+			{
+				session_destroy(void);
+            	header("Location: index.php");
+            	exit; 
+			}
+		public function Add_Block($KindOfBlock)
+			{
+				switch ($KindOfBlock) {
+					case 'add_1':include_once("add_1.txt");	break;
+				}
 			}
 	}
 ?>
